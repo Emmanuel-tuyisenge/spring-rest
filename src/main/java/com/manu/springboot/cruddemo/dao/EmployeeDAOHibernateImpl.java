@@ -9,8 +9,10 @@ import com.manu.springboot.cruddemo.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+@Repository
 public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
     // define field for entity manager
@@ -19,7 +21,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
     // set up constructor injection
     @Autowired
     public EmployeeDAOHibernateImpl(EntityManager theEntityManager) {
-        entityManager = theEntityManager;
+        this.entityManager = theEntityManager;
     }
 
     @Override
@@ -38,6 +40,24 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
         // return the results
         return employees;
+    }
+
+    @Override
+    public Employee findById(int theId) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void save(Employee theEmployee) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void deleteById(int theId) {
+        // TODO Auto-generated method stub
+
     }
 
 }
