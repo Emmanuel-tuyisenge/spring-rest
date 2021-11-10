@@ -3,6 +3,7 @@ package com.manu.springboot.cruddemo.rest;
 import java.util.List;
 
 import com.manu.springboot.cruddemo.entity.Employee;
+import com.manu.springboot.cruddemo.error.EmployeeNotFoundException;
 import com.manu.springboot.cruddemo.service.EmployeeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class EmployeeRestController {
         Employee theEmployee = employeeService.findById(employeeId);
 
         if (theEmployee == null) {
-            throw new RuntimeException("Employee id not found - " + employeeId);
+            throw new EmployeeNotFoundException("Employee id not found - " + employeeId);
         }
 
         return theEmployee;
